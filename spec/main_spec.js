@@ -12,20 +12,40 @@ var main = require("../lib/main.js");
 describe("测试描述", function(){
     sinon.spy(console, 'log');
 
-    it("测试用例1", function(){
+    it("95713", function(){
 
-        var result = main();
-        var expect_string = '';
-        
-        expect(expect_string).to.equal(result);
+        let str = "95713"
+        let result = main(str);
+
+        expect(result).to.equal("||:|:::|:|:|:::|:::||::||::|:|:|");
+    });
+    it("957131111", function(){
+
+        let str = "957131111"
+        let result = main(str);
+
+        expect(result).to.equal("||:|:::|:|:|:::|:::||::||::::||:::||:::||:::||:::|||");
+    });
+    it("95713-1111", function(){
+
+        let str = "957131111"
+        let result = main(str);
+
+        expect(result).to.equal("||:|:::|:|:|:::|:::||::||::::||:::||:::||:::||:::|||");
+    });
+    it("95713的条形码||:|:::|:|:|:::|:::||::||::|:|:|", function(){
+
+        let str = "||:|:::|:|:|:::|:::||::||::|:|:|"
+        let result = main(str);
+
+        expect(result).to.equal("95713");
+    });
+    it("957131111的条形码||:|:::|:|:|:::|:::||::||::::||:::||:::||:::||:::|||", function(){
+
+        let str = "||:|:::|:|:|:::|:::||::||::::||:::||:::||:::||:::|||"
+        let result = main(str);
+
+        expect(result).to.equal("95713-1111");
     });
 
-    it("测试用例2", function(){
-
-        main();
-        var result = _.flatten(console.log.args).join("\n");
-        var expect_string = '';
-
-        expect(expect_string).to.equal(result);
-    });
 });
